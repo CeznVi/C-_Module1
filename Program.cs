@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Concurrent;
+using System.Linq;
 using System.Runtime.Intrinsics.X86;
 
 namespace Module1
@@ -156,13 +158,96 @@ namespace Module1
         //якщо введено 22.12.2021, додаток має відобразити Winter
         //Wednesday.
 
-        static void Main(string[] args)
-        {
- 
-        
-        }
+        //static void Main(string[] args)
+        //{
+
+        //    Console.WriteLine("Please enter date in format 22.12.2021 (day.month.year)");
+        //    string temp = Console.ReadLine();
+
+        //    int daytime = Int32.Parse(temp.Replace(".", ""));
+        //    int day = daytime / 1000000;
+        //    int month = (daytime / 10000) % 100;
+        //    int year = daytime % 10000;
+
+        //    DateTime dTime = new DateTime(year, month, day);
+
+        //    if(month>=3 && month <=5)
+        //        Console.WriteLine("Spring");
+        //    else if(month >= 6 && month <= 8)
+        //        Console.WriteLine("Summer");
+        //    else if (month >= 9 && month <= 11)
+        //        Console.WriteLine("Autum");
+        //    else
+        //        Console.WriteLine("Winter");
+
+        //    Console.WriteLine(dTime.DayOfWeek);
+        //}
 
         /*кінець завдання 5*/
 
+
+        /////Завдання №6
+        //Користувач вводить з клавіатури показання темпера-
+        //тури.Залежно від вибору користувача, додаток конвертує
+        //температуру з Фаренгейта в Цельсій, або навпаки.
+
+        //static void Main(string[] args)
+        //{
+        //    Console.WriteLine("Choise your input date Celsium or Farenheit (c or f)");
+
+        //   string input = (Console.ReadLine());
+        //   char ch = input[0];
+
+        //    Console.WriteLine("Enter number which you see on thermometer");
+        //    float num = float.Parse(Console.ReadLine());
+
+        //    if (ch == 'c')
+        //    {
+        //        num += 32;
+        //        Console.WriteLine($"you num in farenheit {num}");
+        //    }
+        //    else if (ch == 'f')
+        //    {
+        //        num -= 32;
+        //        Console.WriteLine($"you num in celsiun {num}");
+        //    }
+
+        //}
+
+        /*кінець завдання 6*/
+
+        /////Завдання №7
+        ///////Користувач вводить з клавіатури два числа. Потріб-
+        ////но показати усі парні числа у вказаному діапазоні.Якщо
+        ////межі діапазону вказані неправильно, потрібно провести
+        ////нормалізацію кордонів. Наприклад, користувач ввів 20 і
+        ////11. Потрібна нормалізація, після якої початок діапазону
+        ////дорівнюватиме 11, а кінець дорівнюватиме 20.
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter first number of diapazone");
+            int num1 = Int32.Parse(Console.ReadLine());
+            Console.WriteLine("Enter two number of diapazone");
+            int num2 = Int32.Parse(Console.ReadLine());
+
+            if(num1 > num2)
+            {
+                int temp = num2;
+                num2 = num1;
+                num1 = temp;
+            }
+
+            Console.WriteLine("Output range");
+            for (int i = num1; i < num2; i++)
+            {
+                if (i % 2 == 0 && i != 0)
+                {
+                    Console.Write(i);
+                    Console.Write(' ');
+                }  
+            }
+        }
+
+        /*кінець завдання 7*/
     }
 }
